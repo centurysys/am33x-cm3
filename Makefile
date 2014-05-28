@@ -3,7 +3,8 @@ PATCHLEVEL = 8
 SUBLEVEL = 6
 NAME = "Bday Edition"
 
-CROSS_COMPILE = arm-arago-linux-gnueabi-
+#CROSS_COMPILE = arm-arago-linux-gnueabi-
+CROSS_COMPILE = armv7a-hardfloat-linux-gnueabi-
 
 CC = ${CROSS_COMPILE}gcc
 OBJCOPY = $(CROSS_COMPILE)objcopy
