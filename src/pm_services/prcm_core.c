@@ -216,7 +216,7 @@ void ds_save(void)
 
 	prcm_enable_isolation();
 
-//	vtp_disable();
+	vtp_disable();
 
 	ldo_power_down(LDO_MPU);
 
@@ -237,7 +237,7 @@ void ds_restore(void)
 
 	ldo_power_up(LDO_MPU);
 
-//	vtp_enable();
+	vtp_enable();
 
 	/* XXX: Why is this required here for DDR3? */
 	hwmod_enable(HWMOD_EMIF);
