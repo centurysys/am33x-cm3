@@ -44,3 +44,8 @@ version.h
 *.orig
 *~
 \#*#
+
+# GNU global tags
+GPATH
+GRTAGS
+GTAGS
