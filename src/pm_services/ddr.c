@@ -115,7 +115,7 @@ void vtp_enable(void)
 	__raw_writel(0x0, VTP0_CTRL_REG);
 
 	/* write the filter value */
-	__raw_writel(0x6, VTP0_CTRL_REG);
+	__raw_writel(0x00010106, VTP0_CTRL_REG);
 
 	/* set the VTP enable bit */
 	var = __raw_readl(VTP0_CTRL_REG);
@@ -136,8 +136,12 @@ void vtp_disable(void)
 {
 	if (mem_type == MEM_TYPE_DDR2)
 		__raw_writel(VTP_CTRL_VAL_DDR2, VTP0_CTRL_REG);
-	else
-		__raw_writel(VTP_CTRL_VAL_DDR3, VTP0_CTRL_REG);
+	else {
+		if (vtp_off == 1)
+			__raw_writel(VTP_CTRL_VAL_DDR3, VTP0_CTRL_REG);
+		else
+			__raw_writel(VTP_CTRL_VAL_DDR3_VTP, VTP0_CTRL_REG);
+	}
 }
 
 void vtt_high(void)
